@@ -3,6 +3,7 @@ on: push
 jobs:
   swagger:
     name: Swagger
+    runs-on: ubuntu-latest
     steps:
       - name: Generate Swagger UI
         uses: Legion2/swagger-ui-action@v1
