@@ -1,0 +1,72 @@
+---
+swagger: "2.0"
+info:
+  description: Refundable External API
+  version: 1.0.0
+  title: Refundable External API
+  contact:
+    name: Simon Skinner
+    email: ss@refundable.co.uk
+host: refundable-api-gateway-x-6yzzlz9o.ew.gateway.dev
+tags:
+- name: Members
+- name: Offers
+schemes:
+- https
+produces:
+- application/json
+paths:
+  /members/login:
+    post:
+      tags:
+      - Members
+      summary: Logs in a User
+      operationId: loginUser
+      parameters: []
+      responses:
+        "200":
+          description: all good
+      x-google-backend:
+        address: https://api-members-rttnz34elq-nw.a.run.app/login
+  /members/create:
+    post:
+      tags:
+      - Members
+      summary: Creates a new User
+      operationId: createUser
+      parameters: []
+      responses:
+        "200":
+          description: all good
+      x-google-backend:
+        address: https://api-members-rttnz34elq-nw.a.run.app/create
+  /offers/categories:
+    get:
+      tags:
+      - Offers
+      summary: Gets a List of offer Categories
+      operationId: getOfferCategories
+      parameters: []
+      responses:
+        "200":
+          description: all good
+      x-google-backend:
+        address: https://api-offers-rttnz34elq-nw.a.run.app/categories
+  /offers/categories/{categoryId}/offers:
+    get:
+      tags:
+      - Offers
+      summary: Gets a List of offers for a category
+      operationId: getOffers
+      parameters:
+      - name: categoryId
+        in: path
+        required: true
+        type: string
+      responses:
+        "200":
+          description: all good
+      x-google-backend:
+        address: https://api-offers-rttnz34elq-nw.a.run.app/category/{categoryId}
+definitions: {}
+
