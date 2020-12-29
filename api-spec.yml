@@ -94,6 +94,17 @@ paths:
         address: https://api-merchants-rttnz34elq-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /members/login:
+    options:
+      tags:
+        - Members
+      summary: Options for Logs in a User
+      operationId: loginUserOptions
+      parameters: []
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-members-rttnz34elq-nw.a.run.app/login
     post:
       tags:
         - Members
