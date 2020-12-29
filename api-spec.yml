@@ -2,7 +2,7 @@
 swagger: '2.0'
 info:
   description: Refundable External API
-  version: 1.0.0
+  version: 1.0.2
   title: Refundable External API
   contact:
     name: Simon Skinner
@@ -28,7 +28,8 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-charities-rttnz34elq-nw.a.run.app/charities
+        address: https://api-charities-rttnz34elq-nw.a.run.app
+        path_translation: CONSTANT_ADDRESS
   /charities/{charityId}:
     get:
       tags:
@@ -44,7 +45,8 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-charities-rttnz34elq-nw.a.run.app/charities/{charityId}
+        address: https://api-charities-rttnz34elq-nw.a.run.app
+        path_translation: CONSTANT_ADDRESS
   /merchants:
     get:
       tags:
@@ -55,7 +57,8 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-charities-rttnz34elq-nw.a.run.app/merchants
+        address: https://api-charities-rttnz34elq-nw.a.run.app
+        path_translation: CONSTANT_ADDRESS
   /merchants/{merchantId}:
     get:
       tags:
@@ -71,7 +74,8 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-charities-rttnz34elq-nw.a.run.app/merchants/{merchantId}
+        address: https://api-charities-rttnz34elq-nw.a.run.app
+        path_translation: CONSTANT_ADDRESS
   /merchants/{merchantId}/addresses:
     get:
       tags:
@@ -87,7 +91,8 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-charities-rttnz34elq-nw.a.run.app/merchants/{merchantId}/addresses
+        address: https://api-charities-rttnz34elq-nw.a.run.app
+        path_translation: CONSTANT_ADDRESS
   /members/login:
     post:
       tags:
