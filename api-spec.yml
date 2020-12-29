@@ -2,7 +2,7 @@
 swagger: '2.0'
 info:
   description: Refundable External API
-  version: 1.0.3
+  version: 1.0.5
   title: Refundable External API
   contact:
     name: Simon Skinner
@@ -128,15 +128,16 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-offers-rttnz34elq-nw.a.run.app/categories
-  /offers/categories/{categoryId}/offers:
+        address: https://api-offers-rttnz34elq-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+  /offers/categories/{categorySlug}/offers:
     get:
       tags:
         - Offers
       summary: Gets a List of offers for a category
       operationId: getOffers
       parameters:
-        - name: categoryId
+        - name: categorySlug
           in: path
           required: true
           type: string
@@ -144,5 +145,27 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-offers-rttnz34elq-nw.a.run.app/category/{categoryId}
+        address: https://api-offers-rttnz34elq-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+  /offers/categories/{categorySlug}/offers/{offerSlug}:
+    get:
+      tags:
+        - Offers
+      summary: Gets details of an offer from its category
+      operationId: getOfferFromCategory
+      parameters:
+        - name: categorySlug
+          in: path
+          required: true
+          type: string
+        - name: offerSlug
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-offers-rttnz34elq-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
 definitions: {}
