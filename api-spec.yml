@@ -1,5 +1,5 @@
 ---
-swagger: "2.0"
+swagger: '2.0'
 info:
   description: Refundable External API
   version: 1.0.0
@@ -9,64 +9,135 @@ info:
     email: ss@refundable.co.uk
 host: beta.api.refundable.co.uk
 tags:
-- name: Members
-- name: Offers
+  - name: Charities
+  - name: Merchants
+  - name: Members
+  - name: Offers
 schemes:
-- https
+  - https
 produces:
-- application/json
+  - application/json
 paths:
+  /charities:
+    get:
+      tags:
+        - Charities
+      summary: Gets List of Charities
+      operationId: listCharities
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-charities-rttnz34elq-nw.a.run.app/charities
+  /charities/{charityId}:
+    get:
+      tags:
+        - Charities
+      summary: Gets details of a single charity
+      operationId: getCharity
+      parameters:
+        - name: charityId
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-charities-rttnz34elq-nw.a.run.app/charities/{charityId}
+  /merchants:
+    get:
+      tags:
+        - Merchants
+      summary: Gets List of Merchants
+      operationId: listMerchants
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-charities-rttnz34elq-nw.a.run.app/merchants
+  /merchants/{merchantId}:
+    get:
+      tags:
+        - Merchants
+      parameters:
+        - name: merchantId
+          in: path
+          required: true
+          type: string
+      summary: Gets details of a single Merchant
+      operationId: getMerchant
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-charities-rttnz34elq-nw.a.run.app/merchants/{merchantId}
+  /merchants/{merchantId}/addresses:
+    get:
+      tags:
+        - Merchants
+      parameters:
+        - name: merchantId
+          in: path
+          required: true
+          type: string
+      summary: Gets all addresses for a Merchant
+      operationId: listMerchantAddresses
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-charities-rttnz34elq-nw.a.run.app/merchants/{merchantId}/addresses
   /members/login:
     post:
       tags:
-      - Members
+        - Members
       summary: Logs in a User
       operationId: loginUser
       parameters: []
       responses:
-        "200":
+        '200':
           description: all good
       x-google-backend:
         address: https://api-members-rttnz34elq-nw.a.run.app/login
   /members/create:
     post:
       tags:
-      - Members
+        - Members
       summary: Creates a new User
       operationId: createUser
       parameters: []
       responses:
-        "200":
+        '200':
           description: all good
       x-google-backend:
         address: https://api-members-rttnz34elq-nw.a.run.app/create
   /offers/categories:
     get:
       tags:
-      - Offers
+        - Offers
       summary: Gets a List of offer Categories
       operationId: getOfferCategories
       parameters: []
       responses:
-        "200":
+        '200':
           description: all good
       x-google-backend:
         address: https://api-offers-rttnz34elq-nw.a.run.app/categories
   /offers/categories/{categoryId}/offers:
     get:
       tags:
-      - Offers
+        - Offers
       summary: Gets a List of offers for a category
       operationId: getOffers
       parameters:
-      - name: categoryId
-        in: path
-        required: true
-        type: string
+        - name: categoryId
+          in: path
+          required: true
+          type: string
       responses:
-        "200":
+        '200':
           description: all good
       x-google-backend:
         address: https://api-offers-rttnz34elq-nw.a.run.app/category/{categoryId}
 definitions: {}
-
