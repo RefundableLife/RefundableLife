@@ -104,7 +104,8 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-members-rttnz34elq-nw.a.run.app/login
+        address: https://api-members-rttnz34elq-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
     post:
       tags:
         - Members
@@ -117,7 +118,8 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-members-rttnz34elq-nw.a.run.app/login
+        address: https://api-members-rttnz34elq-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
   /members/create:
     options:
       tags:
@@ -131,7 +133,8 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-members-rttnz34elq-nw.a.run.app/create
+        address: https://api-members-rttnz34elq-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
     post:
       tags:
         - Members
@@ -144,7 +147,8 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-members-rttnz34elq-nw.a.run.app/create
+        address: https://api-members-rttnz34elq-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
   /offers/categories:
     get:
       tags:
