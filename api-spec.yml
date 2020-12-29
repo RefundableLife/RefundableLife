@@ -7,7 +7,7 @@ info:
   contact:
     name: Simon Skinner
     email: ss@refundable.co.uk
-host: refundable-api-gateway-x-6yzzlz9o.ew.gateway.dev
+host: beta.api.refundable.co.uk
 tags:
 - name: Members
 - name: Offers
