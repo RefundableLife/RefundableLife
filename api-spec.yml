@@ -57,7 +57,7 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-charities-rttnz34elq-nw.a.run.app
+        address: https://api-merchants-rttnz34elq-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /merchants/{merchantId}:
     get:
@@ -74,7 +74,7 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-charities-rttnz34elq-nw.a.run.app
+        address: https://api-merchants-rttnz34elq-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /merchants/{merchantId}/addresses:
     get:
@@ -91,7 +91,7 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-charities-rttnz34elq-nw.a.run.app
+        address: https://api-merchants-rttnz34elq-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /members/login:
     post:
