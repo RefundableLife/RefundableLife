@@ -2,7 +2,7 @@
 swagger: '2.0'
 info:
   description: Refundable External API
-  version: 1.0.5
+  version: 1.0.6
   title: Refundable External API
   contact:
     name: Simon Skinner
@@ -99,6 +99,8 @@ paths:
         - Members
       summary: Logs in a User
       operationId: loginUser
+      security:
+        - api_key: []
       parameters: []
       responses:
         '200':
@@ -111,6 +113,8 @@ paths:
         - Members
       summary: Creates a new User
       operationId: createUser
+      security:
+        - api_key: []
       parameters: []
       responses:
         '200':
