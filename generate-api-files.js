@@ -44,7 +44,7 @@ const replaceAll = async (type, host, remoteUrl) => {
 
 Promise.all([
   replaceAll('staging', 'beta.api', 'rttnz34elq'),
-  replaceAll('production', 'api', 'rttnz34elq'),
+  replaceAll('production', 'api', 'k2mfaanpza'),
 ])
   .then((r) => {
     console.log('Done');
