@@ -148,7 +148,6 @@ paths:
       x-google-backend:
         address: https://api-members-rttnz34elq-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
-
   /members/cards:
     options:
       tags:
@@ -186,7 +185,6 @@ paths:
       x-google-backend:
         address: https://api-cards-rttnz34elq-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
-
   /members/cards/{cardId}:
     options:
       tags:
@@ -212,7 +210,6 @@ paths:
       x-google-backend:
         address: https://api-cards-rttnz34elq-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
-
   /offers/categories:
     get:
       tags:
