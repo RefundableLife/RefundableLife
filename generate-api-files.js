@@ -19,7 +19,7 @@ const replaceAll = async (type, host, remoteUrl) => {
 
   await replaceInFiles({
     files: filename,
-    from: 'TEMPLATEURL',
+    from: /TEMPLATEURL/g,
     to: remoteUrl,
     saveOldFile: false,
     returnCountOfMatchesByPaths: true,
@@ -27,7 +27,7 @@ const replaceAll = async (type, host, remoteUrl) => {
 
   await replaceInFiles({
     files: filename,
-    from: 'TEMPLATEHOST',
+    from: /TEMPLATEHOST/g,
     to: host,
     saveOldFile: false,
     returnCountOfMatchesByPaths: true,
@@ -35,7 +35,7 @@ const replaceAll = async (type, host, remoteUrl) => {
 
   await replaceInFiles({
     files: filename,
-    from: 'APIVERSION',
+    from: /APIVERSION/g,
     to: version,
     saveOldFile: false,
     returnCountOfMatchesByPaths: true,
