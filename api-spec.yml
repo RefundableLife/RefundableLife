@@ -2,7 +2,7 @@
 swagger: '2.0'
 info:
   description: Refundable External API
-  version: 1.0.15
+  version: 1.0.16
   title: Refundable External API
   contact:
     name: Simon Skinner
@@ -200,7 +200,11 @@ paths:
         - Members
       summary: Deletes a card options
       operationId: memberCardDeleteOptions
-      parameters: []
+      parameters:
+        - name: cardId
+          in: path
+          required: true
+          type: string
       responses:
         '200':
           description: all good
@@ -212,7 +216,11 @@ paths:
         - Members
       summary: Deletes a card
       operationId: memberCardDelete
-      parameters: []
+      parameters:
+        - name: cardId
+          in: path
+          required: true
+          type: string
       security:
         - api_key: []
       responses:
