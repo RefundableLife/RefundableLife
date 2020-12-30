@@ -2,7 +2,7 @@
 swagger: '2.0'
 info:
   description: Refundable External API
-  version: 1.0.10
+  version: 1.0.12
   title: Refundable External API
   contact:
     name: Simon Skinner
@@ -116,8 +116,6 @@ paths:
         - Members
       summary: Logs in a User
       operationId: loginUser
-      security:
-        - api_key: []
       parameters: []
       responses:
         '200':
@@ -131,8 +129,6 @@ paths:
         - Members
       summary: Creates a new User Options
       operationId: createUserOptions
-      security:
-        - api_key: []
       parameters: []
       responses:
         '200':
@@ -145,8 +141,6 @@ paths:
         - Members
       summary: Creates a new User
       operationId: createUser
-      security:
-        - api_key: []
       parameters: []
       responses:
         '200':
@@ -210,6 +204,7 @@ paths:
   /transactions:
     get:
       summary: Gets a list of transactions
+      operationId: listTransactions
       tags:
         - Transactions
       responses:
@@ -227,7 +222,6 @@ definitions:
       id:
         type: string
         description: The ID of the transaction
-        example: 'salhsf89hoqfhsi73'
   ArrayOfTransactions:
     type: array
     items:
@@ -236,23 +230,17 @@ definitions:
     type: object
     properties:
       id:
-        type: 'string'
-        example: '1VhxbNSexSg0kZVDPBxZ'
+        type: string
       slug:
-        type: 'string'
-        example: 'new-category-1'
+        type: string
       name:
-        type: 'string'
-        example: 'New Category'
+        type: string
       imageUrl:
-        type: 'string'
-        example: 'https://s3.eu-west-2.amazonaws.com/cdn.staging.refundable.co.uk/images/offers/categories/7a05a560-43a4-11eb-b3f7-b554f2539e97.jpg'
+        type: string
       deleted:
-        type: 'boolean'
-        example: false
+        type: boolean
       description:
-        type: 'string'
-        example: 'New Category 1'
+        type: string
   ArrayOfCategories:
     type: array
     items:
@@ -261,48 +249,33 @@ definitions:
     type: object
     properties:
       id:
-        type: 'string'
-        example: 'Q3Xd4ok7AGqmOeHxGwto'
+        type: string
       icon:
-        type: 'string'
-        example: 'https://www.alzheimersresearchuk.org/wp-content/uploads/2019/09/logo-aruk_make-breakthroughs-possible_horizontal_transparent.png'
+        type: string
       paymentRef:
-        type: 'string'
-        example: '1263013'
+        type: string
       telephoneNumber:
-        type: 'string'
-        example: '-'
+        type: string
       sortCode:
-        type: 'string'
-        example: '20-17-68'
+        type: string
       deleted:
-        type: 'boolean'
-        example: false
+        type: boolean
       accountNumber:
-        type: 'string'
-        example: '30477117'
+        type: string
       image:
-        type: 'string'
-        example: 'https://www.alzheimersresearchuk.org/wp-content/uploads/bb-plugin/cache/north-ireland-landscape.jpg'
+        type: string
       name:
-        type: 'string'
-        example: "Alzheimer's Research UK"
+        type: string
       contactName:
-        type: 'string'
-        example: 'Emily Kenny'
+        type: string
       contactEmail:
-        type: 'string'
-        example: 'fundraising@alzheimersresearchuk.org'
+        type: string
       shortDescription:
-        type: 'string'
-        example: 'Alzheimer’s Research UK is the UK’s leading dementia research charity, dedicated to causes, diagnosis, prevention, treatment and cure. '
+        type: string
       miAddress:
-        type: 'string'
-        example: 'fundraising@alzheimersresearchuk.org'
+        type: string
       description:
-        type: 'string'
-        example: "When Alzheimer’s Research UK was founded in 1992 as the Alzheimer’s Research Trust, our mission was to defeat dementia through research.\n\nOur scientists have been behind some of the biggest breakthroughs in dementia research. Their pioneering work is bringing us closer to a future without the fear, harm and heartbreak of dementia. We’ve also brought dementia research into the spotlight, campaigning for more funding and helping to put the condition not only at the top of the UK’s health agenda, but also attracting attention worldwide.\n\nOur vision is a world where people are free from the fear, harm and heartbreak of dementia.\n\nWe’re challenging the way people think about dementia, uniting the big thinkers in the field and funding the innovative science that will deliver a cure."
-
+        type: string
   ArrayOfCharities:
     type: array
     items:
