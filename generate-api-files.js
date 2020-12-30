@@ -1,6 +1,8 @@
 const replaceInFiles = require('replace-in-files');
 const fs = require('fs');
 
+const { version } = require('./package.json');
+
 const replaceAll = async (type, host, remoteUrl) => {
   const filename = 'api-spec-' + type + '.yml';
 
@@ -27,6 +29,14 @@ const replaceAll = async (type, host, remoteUrl) => {
     files: filename,
     from: 'TEMPLATEHOST',
     to: host,
+    saveOldFile: false,
+    returnCountOfMatchesByPaths: true,
+  });
+
+  await replaceInFiles({
+    files: filename,
+    from: 'APIVERSION',
+    to: version,
     saveOldFile: false,
     returnCountOfMatchesByPaths: true,
   });
