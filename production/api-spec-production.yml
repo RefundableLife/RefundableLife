@@ -55,7 +55,7 @@ paths:
           schema:
             $ref: '#/definitions/Charity'
       x-google-backend:
-        address: https://api-charities-TEMPLATEURL-nw.a.run.app
+        address: https://api-charities-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /merchants:
     get:
@@ -67,7 +67,7 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-merchants-TEMPLATEURL-nw.a.run.app
+        address: https://api-merchants-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /merchants/{merchantId}:
     get:
@@ -84,7 +84,7 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-merchants-TEMPLATEURL-nw.a.run.app
+        address: https://api-merchants-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /merchants/{merchantId}/addresses:
     get:
@@ -101,7 +101,7 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-merchants-TEMPLATEURL-nw.a.run.app
+        address: https://api-merchants-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /members/login:
     options:
@@ -114,7 +114,7 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-members-TEMPLATEURL-nw.a.run.app
+        address: https://api-members-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
     post:
       tags:
@@ -126,7 +126,7 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-members-TEMPLATEURL-nw.a.run.app
+        address: https://api-members-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /members/create:
     options:
@@ -139,7 +139,7 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-members-TEMPLATEURL-nw.a.run.app
+        address: https://api-members-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
     post:
       tags:
@@ -153,7 +153,7 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-members-TEMPLATEURL-nw.a.run.app
+        address: https://api-members-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /members/cards:
     options:
@@ -166,7 +166,7 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-cards-TEMPLATEURL-nw.a.run.app
+        address: https://api-cards-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
     get:
       tags:
@@ -178,7 +178,7 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-cards-TEMPLATEURL-nw.a.run.app
+        address: https://api-cards-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
     post:
       tags:
@@ -192,7 +192,7 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-cards-TEMPLATEURL-nw.a.run.app
+        address: https://api-cards-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /members/cards/{cardId}:
     options:
@@ -209,7 +209,7 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-cards-TEMPLATEURL-nw.a.run.app
+        address: https://api-cards-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
     delete:
       tags:
@@ -227,7 +227,7 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-cards-TEMPLATEURL-nw.a.run.app
+        address: https://api-cards-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /offers/categories:
     get:
@@ -242,7 +242,7 @@ paths:
           schema:
             $ref: '#/definitions/ArrayOfCategories'
       x-google-backend:
-        address: https://api-offers-TEMPLATEURL-nw.a.run.app
+        address: https://api-offers-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /offers/categories/{categorySlug}/offers:
     get:
@@ -259,7 +259,7 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-offers-TEMPLATEURL-nw.a.run.app
+        address: https://api-offers-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /offers/categories/{categorySlug}/offers/{offerSlug}:
     get:
@@ -280,7 +280,7 @@ paths:
         '200':
           description: all good
       x-google-backend:
-        address: https://api-offers-TEMPLATEURL-nw.a.run.app
+        address: https://api-offers-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /transactions:
     get:
@@ -294,7 +294,7 @@ paths:
           schema:
             $ref: '#/definitions/ArrayOfTransactions'
       x-google-backend:
-        address: https://api-transactions-TEMPLATEURL-nw.a.run.app
+        address: https://api-transactions-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /transactions/grouped:
     get:
@@ -308,7 +308,7 @@ paths:
           schema:
             $ref: '#/definitions/ArrayOfTransactionGroups'
       x-google-backend:
-        address: https://api-transactions-TEMPLATEURL-nw.a.run.app
+        address: https://api-transactions-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /transactions/summary:
     get:
@@ -322,7 +322,7 @@ paths:
           schema:
             $ref: '#/definitions/ArrayOfTransactionGroups'
       x-google-backend:
-        address: https://api-transactions-TEMPLATEURL-nw.a.run.app
+        address: https://api-transactions-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
 definitions:
   FinancialSummary:
