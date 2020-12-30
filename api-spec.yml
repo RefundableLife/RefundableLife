@@ -2,12 +2,17 @@
 swagger: '2.0'
 info:
   description: Refundable External API
-  version: 1.0.14
+  version: 1.0.15
   title: Refundable External API
   contact:
     name: Simon Skinner
     email: ss@refundable.co.uk
 host: beta.api.refundable.co.uk
+securityDefinitions:
+  api_key:
+    type: 'apiKey'
+    name: 'key'
+    in: 'query'
 tags:
   - name: Charities
   - name: Merchants
@@ -142,6 +147,8 @@ paths:
       summary: Creates a new User
       operationId: createUser
       parameters: []
+      security:
+        - api_key: []
       responses:
         '200':
           description: all good
@@ -179,6 +186,8 @@ paths:
       summary: Creates a card
       operationId: memberCardCreate
       parameters: []
+      security:
+        - api_key: []
       responses:
         '200':
           description: all good
@@ -204,6 +213,8 @@ paths:
       summary: Deletes a card
       operationId: memberCardDelete
       parameters: []
+      security:
+        - api_key: []
       responses:
         '200':
           description: all good
