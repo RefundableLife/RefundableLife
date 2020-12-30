@@ -2,7 +2,7 @@
 swagger: '2.0'
 info:
   description: Refundable External API
-  version: 1.0.13
+  version: 1.0.14
   title: Refundable External API
   contact:
     name: Simon Skinner
@@ -148,6 +148,71 @@ paths:
       x-google-backend:
         address: https://api-members-rttnz34elq-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
+
+  /members/cards:
+    options:
+      tags:
+        - Members
+      summary: Card options
+      operationId: memberCardOptions
+      parameters: []
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-cards-rttnz34elq-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    get:
+      tags:
+        - Members
+      summary: Gets a list of cards
+      operationId: memberCardList
+      parameters: []
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-cards-rttnz34elq-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    post:
+      tags:
+        - Members
+      summary: Creates a card
+      operationId: memberCardCreate
+      parameters: []
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-cards-rttnz34elq-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+
+  /members/cards/{cardId}:
+    options:
+      tags:
+        - Members
+      summary: Deletes a card options
+      operationId: memberCardDeleteOptions
+      parameters: []
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-cards-rttnz34elq-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    delete:
+      tags:
+        - Members
+      summary: Deletes a card
+      operationId: memberCardDelete
+      parameters: []
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-cards-rttnz34elq-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+
   /offers/categories:
     get:
       tags:
