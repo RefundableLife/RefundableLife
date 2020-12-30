@@ -2,7 +2,7 @@
 swagger: '2.0'
 info:
   description: Refundable External API
-  version: 1.0.12
+  version: 1.0.13
   title: Refundable External API
   contact:
     name: Simon Skinner
@@ -203,7 +203,7 @@ paths:
         path_translation: APPEND_PATH_TO_ADDRESS
   /transactions:
     get:
-      summary: Gets a list of transactions
+      summary: Gets a list of transactions ungrouped
       operationId: listTransactions
       tags:
         - Transactions
@@ -215,17 +215,82 @@ paths:
       x-google-backend:
         address: https://api-transactions-rttnz34elq-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
+  /transactions/grouped:
+    get:
+      summary: Gets a list of transaction grouped by day
+      operationId: listTransactionsGrouped
+      tags:
+        - Transactions
+      responses:
+        '200':
+          description: An array of transactions
+          schema:
+            $ref: '#/definitions/ArrayOfTransactionGroups'
+      x-google-backend:
+        address: https://api-transactions-rttnz34elq-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+  /transactions/summary:
+    get:
+      summary: Gets a summary of transactions
+      operationId: transactionSummary
+      tags:
+        - Transactions
+      responses:
+        '200':
+          description: Transaction Summary
+          schema:
+            $ref: '#/definitions/ArrayOfTransactionGroups'
+      x-google-backend:
+        address: https://api-transactions-rttnz34elq-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
 definitions:
+  FinancialSummary:
+    type: object
+    properties:
+      totalRefunded:
+        type: number
+      totalWithdrawn:
+        type: number
+      totalAvailable:
+        type: number
+      totalPending:
+        type: number
   Transaction:
     type: object
     properties:
       id:
         type: string
-        description: The ID of the transaction
+      time:
+        type: string
+      location:
+        type: string
+      merchantName:
+        type: string
+      refundValue:
+        type: number
+      logo:
+        type: string
   ArrayOfTransactions:
     type: array
     items:
       $ref: '#/definitions/Transaction'
+  TransactionGroup:
+    type: object
+    properties:
+      id:
+        type: string
+      date:
+        type: string
+      totalRefunds:
+        type: number
+      refunds:
+        type: array
+        items:
+          $ref: '#/definitions/Transaction'
+  ArrayOfTransactionGroups:
+    type: array
+    items:
+      $ref: '#/definitions/TransactionGroup'
   Category:
     type: object
     properties:
