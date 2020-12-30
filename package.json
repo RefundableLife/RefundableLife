@@ -1,0 +1,22 @@
+{
+  "name": "refundable",
+  "version": "1.0.0",
+  "description": "",
+  "main": "generate-api-files.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tech3k/Refundable.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tech3k/Refundable/issues"
+  },
+  "homepage": "https://github.com/tech3k/Refundable#readme",
+  "dependencies": {
+    "replace-in-files": "^3.0.0"
+  }
+}

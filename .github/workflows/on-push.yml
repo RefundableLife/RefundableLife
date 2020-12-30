@@ -7,11 +7,20 @@ jobs:
     steps:
       - name: Checkout Latest Version
         uses: actions/checkout@v2
+      - name: Install Base Dependencies
+        run: npm install
+      - name: Generate YAML Files
+        run: node generate-api-files.js
       - name: Generate Swagger UI
         uses: Legion2/swagger-ui-action@v1
         with:
-          output: swagger-ui
-          spec-file: api-spec.yml
+          output: swagger-ui/staging
+          spec-file: api-spec-staging.yml
+      - name: Generate Swagger UI
+        uses: Legion2/swagger-ui-action@v1
+        with:
+          output: swagger-ui/production
+          spec-file: api-spec-production.yml
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
