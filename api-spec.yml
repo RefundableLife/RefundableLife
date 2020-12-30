@@ -13,6 +13,7 @@ tags:
   - name: Merchants
   - name: Members
   - name: Offers
+  - name: Transactions
 schemes:
   - https
 produces:
@@ -26,7 +27,9 @@ paths:
       operationId: listCharities
       responses:
         '200':
-          description: all good
+          description: An array of transactions
+          schema:
+            $ref: '#/definitions/ArrayOfCharities'
       x-google-backend:
         address: https://api-charities-rttnz34elq-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
@@ -43,7 +46,9 @@ paths:
           type: string
       responses:
         '200':
-          description: all good
+          description: A single Charity Item
+          schema:
+            $ref: '#/definitions/Charity'
       x-google-backend:
         address: https://api-charities-rttnz34elq-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
@@ -158,7 +163,9 @@ paths:
       parameters: []
       responses:
         '200':
-          description: all good
+          description: A list of categories
+          schema:
+            $ref: '#/definitions/ArrayOfCategories'
       x-google-backend:
         address: https://api-offers-rttnz34elq-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
@@ -200,4 +207,103 @@ paths:
       x-google-backend:
         address: https://api-offers-rttnz34elq-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
-definitions: {}
+  /transactions:
+    get:
+      summary: Gets a list of transactions
+      tags:
+        - Transactions
+      responses:
+        '200':
+          description: An array of transactions
+          schema:
+            $ref: '#/definitions/ArrayOfTransactions'
+      x-google-backend:
+        address: https://api-transactions-rttnz34elq-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+definitions:
+  Transaction:
+    type: object
+    properties:
+      id:
+        type: string
+        description: The ID of the transaction
+        example: 'salhsf89hoqfhsi73'
+  ArrayOfTransactions:
+    type: array
+    items:
+      $ref: '#/definitions/Transaction'
+  Category:
+    type: object
+    properties:
+      id:
+        type: 'string'
+        example: '1VhxbNSexSg0kZVDPBxZ'
+      slug:
+        type: 'string'
+        example: 'new-category-1'
+      name:
+        type: 'string'
+        example: 'New Category'
+      imageUrl:
+        type: 'string'
+        example: 'https://s3.eu-west-2.amazonaws.com/cdn.staging.refundable.co.uk/images/offers/categories/7a05a560-43a4-11eb-b3f7-b554f2539e97.jpg'
+      deleted:
+        type: 'boolean'
+        example: false
+      description:
+        type: 'string'
+        example: 'New Category 1'
+  ArrayOfCategories:
+    type: array
+    items:
+      $ref: '#/definitions/Category'
+  Charity:
+    type: object
+    properties:
+      id:
+        type: 'string'
+        example: 'Q3Xd4ok7AGqmOeHxGwto'
+      icon:
+        type: 'string'
+        example: 'https://www.alzheimersresearchuk.org/wp-content/uploads/2019/09/logo-aruk_make-breakthroughs-possible_horizontal_transparent.png'
+      paymentRef:
+        type: 'string'
+        example: '1263013'
+      telephoneNumber:
+        type: 'string'
+        example: '-'
+      sortCode:
+        type: 'string'
+        example: '20-17-68'
+      deleted:
+        type: 'boolean'
+        example: false
+      accountNumber:
+        type: 'string'
+        example: '30477117'
+      image:
+        type: 'string'
+        example: 'https://www.alzheimersresearchuk.org/wp-content/uploads/bb-plugin/cache/north-ireland-landscape.jpg'
+      name:
+        type: 'string'
+        example: "Alzheimer's Research UK"
+      contactName:
+        type: 'string'
+        example: 'Emily Kenny'
+      contactEmail:
+        type: 'string'
+        example: 'fundraising@alzheimersresearchuk.org'
+      shortDescription:
+        type: 'string'
+        example: 'Alzheimer’s Research UK is the UK’s leading dementia research charity, dedicated to causes, diagnosis, prevention, treatment and cure. '
+      miAddress:
+        type: 'string'
+        example: 'fundraising@alzheimersresearchuk.org'
+      description:
+        type: 'string'
+        example: "When Alzheimer’s Research UK was founded in 1992 as the Alzheimer’s Research Trust, our mission was to defeat dementia through research.\n\nOur scientists have been behind some of the biggest breakthroughs in dementia research. Their pioneering work is bringing us closer to a future without the fear, harm and heartbreak of dementia. We’ve also brought dementia research into the spotlight, campaigning for more funding and helping to put the condition not only at the top of the UK’s health agenda, but also attracting attention worldwide.\n\nOur vision is a world where people are free from the fear, harm and heartbreak of dementia.\n\nWe’re challenging the way people think about dementia, uniting the big thinkers in the field and funding the innovative science that will deliver a cure."
+
+  ArrayOfCharities:
+    type: array
+    items:
+      $ref: '#/definitions/Charity'
