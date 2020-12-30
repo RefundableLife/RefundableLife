@@ -2,7 +2,7 @@
 swagger: '2.0'
 info:
   description: Refundable External API
-  version: 1.1.2
+  version: 1.1.1
   title: Refundable External API
   contact:
     name: Simon Skinner
@@ -36,7 +36,7 @@ paths:
           schema:
             $ref: '#/definitions/ArrayOfCharities'
       x-google-backend:
-        address: https://api-charities-k2mfaanpza-nw.a.run.app
+        address: https://api-charities-rttnz34elq-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /charities/{charityId}:
     get:
