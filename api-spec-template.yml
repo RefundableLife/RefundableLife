@@ -69,6 +69,27 @@ paths:
       x-google-backend:
         address: https://api-merchants-TEMPLATEURL-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
+  /merchants/nearby:
+    get:
+      tags:
+        - Merchants
+      parameters:
+        - name: longitude
+          in: query
+          required: true
+          type: number
+        - name: latitude
+          in: query
+          required: true
+          type: number
+      summary: Gets List of Merchants near to the given logitude and latitude
+      operationId: listMerchantsByLocation
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-merchants-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
   /merchants/{merchantId}:
     get:
       tags:
