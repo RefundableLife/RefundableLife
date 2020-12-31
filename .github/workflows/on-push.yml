@@ -13,6 +13,8 @@ jobs:
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
           service_account_key: ${{ secrets.RUN_SA_KEY }}
+      - name: Install gcloud Beta components
+        run: gcloud components install beta
       - name: Install Base Dependencies
         run: npm install
       - name: Generate YAML Files
