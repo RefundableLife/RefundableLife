@@ -24,7 +24,7 @@ jobs:
           output: swagger-ui
           spec-file: api-spec-production.yml
       - name: Deploy Config to API Gateway
-        run: gcloud beta api-gateway api-configs create $(node -e "console.log(require('./package.json').version.replace(/[.]/g, '-'));") --api=refundable-api --openapi-spec=api-spec-staging.yml --project=refundable-portal
+        run: gcloud beta api-gateway api-configs create $(node -e "console.log(require('./package.json').version.replace(/[.]/g, '-'));") --api=refundable-api --openapi-spec=api-spec-production.yml --project=refundable-portal
       - name: Set new Config Live
         run: gcloud beta api-gateway gateways update public-api-gateway --api-config=$(node -e "console.log(require('./package.json').version.replace(/[.]/g, '-'));") --api=refundable-api --project=refundable-portal --location=europe-west1
       - name: Deploy to GitHub Pages
