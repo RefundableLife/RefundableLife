@@ -15,15 +15,6 @@ jobs:
           service_account_key: ${{ secrets.RUN_SA_KEY }}
       - name: Install gcloud Beta components
         run: gcloud components install beta
-      - name: Install Base Dependencies
-        run: npm install
-      - name: Generate YAML Files
-        run: node generate-staging-api.js
-      - name: Generate Staging Swagger UI
-        uses: Legion2/swagger-ui-action@v1
-        with:
-          output: swagger-ui/staging
-          spec-file: api-spec-staging.yml
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

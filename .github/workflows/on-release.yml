@@ -21,7 +21,7 @@ jobs:
       - name: Generate Production Swagger UI
         uses: Legion2/swagger-ui-action@v1
         with:
-          output: swagger-ui/production
+          output: swagger-ui
           spec-file: api-spec-production.yml
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
