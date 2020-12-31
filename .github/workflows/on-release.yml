@@ -18,12 +18,7 @@ jobs:
         run: npm install
       - name: Generate YAML Files
         run: node generate-production-api.js
-      - name: Generate Swagger UI
-        uses: Legion2/swagger-ui-action@v1
-        with:
-          output: swagger-ui/staging
-          spec-file: api-spec-staging.yml
-      - name: Generate Swagger UI
+      - name: Generate Production Swagger UI
         uses: Legion2/swagger-ui-action@v1
         with:
           output: swagger-ui/production
