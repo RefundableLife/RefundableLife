@@ -10,6 +10,9 @@ jobs:
     steps:
       - name: Checkout Latest Version
         uses: actions/checkout@v2
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          service_account_key: ${{ secrets.RUN_SA_KEY }}
       - name: Install Base Dependencies
         run: npm install
       - name: Generate YAML Files
@@ -29,3 +32,9 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: swagger-ui
+      - name: Deploy to SPI Gateway
+        run: gcloud beta api-gateway api-configs create \
+          $(node -e "console.log(require('./package.json').version.replace(/[.]/g, '-'));") \
+          --api=refundable-beta \
+          --openapi-spec=api-spec-staging.yml \
+          --project=refundable-beta-portal
