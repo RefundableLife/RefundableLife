@@ -19,6 +19,7 @@ tags:
   - name: Members
   - name: Offers
   - name: Transactions
+  - name: Payments
 schemes:
   - https
 produces:
@@ -345,7 +346,45 @@ paths:
       x-google-backend:
         address: https://api-transactions-TEMPLATEURL-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
+  /payments:
+    get:
+      summary: Gets the payment schedule for a member
+      operationId: paymentSchedule
+      parameters:
+        - name: clientId
+          in: query
+          required: true
+          type: string
+        - name: memberId
+          in: query
+          required: true
+          type: string
+      tags:
+        - Payments
+      responses:
+        '200':
+          description: A full payment schedule
+      x-google-backend:
+        address: https://api-payments-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
 definitions:
+  Payment:
+    type: object
+    properties:
+      id:
+        type: string
+      expected:
+        type: string
+      received:
+        type: boolean
+      skipped:
+        type: boolean
+      value:
+        type: number
+  ArrayOfPayments:
+    type: array
+    items:
+      $ref: '#/definitions/Payment'
   FinancialSummary:
     type: object
     properties:
