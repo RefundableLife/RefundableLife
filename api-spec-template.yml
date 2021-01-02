@@ -20,6 +20,7 @@ tags:
   - name: Offers
   - name: Transactions
   - name: Payments
+  - name: Documents
 schemes:
   - https
 produces:
@@ -364,10 +365,71 @@ paths:
       responses:
         '200':
           description: A full payment schedule
+          schema:
+            $ref: '#/definitions/ArrayOfPayments'
       x-google-backend:
         address: https://api-payments-TEMPLATEURL-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
+  /documents:
+    get:
+      summary: Gets a list of documents for the member
+      operationId: documentsList
+      parameters:
+        - name: clientId
+          in: query
+          required: true
+          type: string
+        - name: memberId
+          in: query
+          required: true
+          type: string
+      tags:
+        - Documents
+      responses:
+        '200':
+          description: A list of documents
+          schema:
+            $ref: '#/definitions/ArrayOfDocuments'
+      x-google-backend:
+        address: https://api-documents-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+  /documents/{documentId}/download:
+    get:
+      summary: Downloads a given document
+      operationId: downloadDocument
+      parameters:
+        - name: documentId
+          in: path
+          required: true
+          type: string
+        - name: clientId
+          in: query
+          required: true
+          type: string
+        - name: memberId
+          in: query
+          required: true
+          type: string
+      tags:
+        - Documents
+      responses:
+        '200':
+          description: A list of documents
+          schema:
+            $ref: '#/definitions/ArrayOfDocuments'
+      x-google-backend:
+        address: https://api-documents-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
 definitions:
+  Document:
+    type: object
+    properties:
+      id:
+        type: string
+  ArrayOfDocuments:
+    type: array
+    items:
+      $ref: '#/definitions/Document'
   Payment:
     type: object
     properties:
