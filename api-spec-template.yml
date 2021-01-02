@@ -426,6 +426,10 @@ definitions:
     properties:
       id:
         type: string
+      created:
+        type: string
+      name:
+        type: string
   ArrayOfDocuments:
     type: array
     items:
