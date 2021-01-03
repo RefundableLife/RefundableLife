@@ -442,7 +442,7 @@ paths:
           schema:
             $ref: '#/definitions/ArrayOfCommunications'
       x-google-backend:
-        address: https://api-documents-TEMPLATEURL-nw.a.run.app
+        address: https://api-communications-TEMPLATEURL-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
     options:
       summary: Creates a message from a user to Refundable (OPTIONS)
@@ -453,7 +453,7 @@ paths:
         '200':
           description: A success result
       x-google-backend:
-        address: https://api-documents-TEMPLATEURL-nw.a.run.app
+        address: https://api-communications-TEMPLATEURL-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
     post:
       summary: Creates a message from a user to Refundable
@@ -473,7 +473,7 @@ paths:
         '200':
           description: A success result
       x-google-backend:
-        address: https://api-documents-TEMPLATEURL-nw.a.run.app
+        address: https://api-communications-TEMPLATEURL-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
 definitions:
   Communication:
