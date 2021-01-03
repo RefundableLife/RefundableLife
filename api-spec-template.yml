@@ -21,6 +21,7 @@ tags:
   - name: Transactions
   - name: Payments
   - name: Documents
+  - name: Communications
 schemes:
   - https
 produces:
@@ -420,7 +421,77 @@ paths:
       x-google-backend:
         address: https://api-documents-TEMPLATEURL-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
+  /communications:
+    get:
+      summary: Gets a list of communication with the client
+      operationId: communicationsList
+      parameters:
+        - name: clientId
+          in: query
+          required: true
+          type: string
+        - name: memberId
+          in: query
+          required: true
+          type: string
+      tags:
+        - Communications
+      responses:
+        '200':
+          description: A list of communications
+          schema:
+            $ref: '#/definitions/ArrayOfCommunications'
+      x-google-backend:
+        address: https://api-documents-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    options:
+      summary: Creates a message from a user to Refundable (OPTIONS)
+      tags:
+        - Communications
+      responses:
+        '200':
+          description: A success result
+      x-google-backend:
+        address: https://api-documents-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    post:
+      summary: Creates a message from a user to Refundable
+      operationId: sendCommunication
+      parameters:
+        - name: clientId
+          in: query
+          required: true
+          type: string
+        - name: memberId
+          in: query
+          required: true
+          type: string
+      tags:
+        - Communications
+      responses:
+        '200':
+          description: A success result
+      x-google-backend:
+        address: https://api-documents-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
 definitions:
+  Communication:
+    type: object
+    properties:
+      id:
+        type: string
+      direction:
+        type: string
+      type:
+        type: string
+      message:
+        type: string
+      created:
+        type: string
+  ArrayOfCommunications:
+    type: array
+    items:
+      $ref: '#/definitions/Communication'
   Document:
     type: object
     properties:
