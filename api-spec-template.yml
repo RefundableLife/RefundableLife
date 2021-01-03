@@ -446,6 +446,7 @@ paths:
         path_translation: APPEND_PATH_TO_ADDRESS
     options:
       summary: Creates a message from a user to Refundable (OPTIONS)
+      operationId: sendCommunicationOptions
       tags:
         - Communications
       responses:
