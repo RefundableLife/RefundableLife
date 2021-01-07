@@ -2,7 +2,7 @@
 swagger: '2.0'
 info:
   description: Refundable External API
-  version: 1.2.5
+  version: 1.4.2
   title: Refundable External API
   contact:
     name: Simon Skinner
@@ -19,6 +19,9 @@ tags:
   - name: Members
   - name: Offers
   - name: Transactions
+  - name: Payments
+  - name: Documents
+  - name: Communications
 schemes:
   - https
 produces:
@@ -345,7 +348,181 @@ paths:
       x-google-backend:
         address: https://api-transactions-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
+  /payments:
+    get:
+      summary: Gets the payment schedule for a member
+      operationId: paymentSchedule
+      parameters:
+        - name: clientId
+          in: query
+          required: true
+          type: string
+        - name: memberId
+          in: query
+          required: true
+          type: string
+      tags:
+        - Payments
+      responses:
+        '200':
+          description: A full payment schedule
+          schema:
+            $ref: '#/definitions/ArrayOfPayments'
+      x-google-backend:
+        address: https://api-payments-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+  /documents:
+    get:
+      summary: Gets a list of documents for the member
+      operationId: documentsList
+      parameters:
+        - name: clientId
+          in: query
+          required: true
+          type: string
+        - name: memberId
+          in: query
+          required: true
+          type: string
+      tags:
+        - Documents
+      responses:
+        '200':
+          description: A list of documents
+          schema:
+            $ref: '#/definitions/ArrayOfDocuments'
+      x-google-backend:
+        address: https://api-documents-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+  /documents/{documentId}/download:
+    get:
+      summary: Downloads a given document
+      operationId: downloadDocument
+      parameters:
+        - name: documentId
+          in: path
+          required: true
+          type: string
+        - name: clientId
+          in: query
+          required: true
+          type: string
+        - name: memberId
+          in: query
+          required: true
+          type: string
+      tags:
+        - Documents
+      responses:
+        '200':
+          description: A list of documents
+          schema:
+            $ref: '#/definitions/ArrayOfDocuments'
+      x-google-backend:
+        address: https://api-documents-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+  /communications:
+    get:
+      summary: Gets a list of communication with the client
+      operationId: communicationsList
+      parameters:
+        - name: clientId
+          in: query
+          required: true
+          type: string
+        - name: memberId
+          in: query
+          required: true
+          type: string
+      tags:
+        - Communications
+      responses:
+        '200':
+          description: A list of communications
+          schema:
+            $ref: '#/definitions/ArrayOfCommunications'
+      x-google-backend:
+        address: https://api-communications-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    options:
+      summary: Creates a message from a user to Refundable (OPTIONS)
+      operationId: sendCommunicationOptions
+      tags:
+        - Communications
+      responses:
+        '200':
+          description: A success result
+      x-google-backend:
+        address: https://api-communications-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    post:
+      summary: Creates a message from a user to Refundable
+      operationId: sendCommunication
+      parameters:
+        - name: clientId
+          in: query
+          required: true
+          type: string
+        - name: memberId
+          in: query
+          required: true
+          type: string
+      tags:
+        - Communications
+      responses:
+        '200':
+          description: A success result
+      x-google-backend:
+        address: https://api-communications-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
 definitions:
+  Communication:
+    type: object
+    properties:
+      id:
+        type: string
+      direction:
+        type: string
+      type:
+        type: string
+      message:
+        type: string
+      created:
+        type: string
+  ArrayOfCommunications:
+    type: array
+    items:
+      $ref: '#/definitions/Communication'
+  Document:
+    type: object
+    properties:
+      id:
+        type: string
+      created:
+        type: string
+      name:
+        type: string
+  ArrayOfDocuments:
+    type: array
+    items:
+      $ref: '#/definitions/Document'
+  Payment:
+    type: object
+    properties:
+      id:
+        type: string
+      expected:
+        type: string
+      received:
+        type: boolean
+      skipped:
+        type: boolean
+      value:
+        type: number
+  ArrayOfPayments:
+    type: array
+    items:
+      $ref: '#/definitions/Payment'
   FinancialSummary:
     type: object
     properties:
