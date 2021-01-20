@@ -152,6 +152,41 @@ paths:
       x-google-backend:
         address: https://api-members-TEMPLATEURL-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
+  /members/{userId}:
+    options:
+      tags:
+        - Members
+      summary: Updates a user details
+      operationId: updateUserOptions
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-members-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    post:
+      tags:
+        - Members
+      summary: Updates a user details
+      operationId: updateUserPost
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: string
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-members-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
   /members/create:
     options:
       tags:
