@@ -14,6 +14,7 @@ securityDefinitions:
     name: 'key'
     in: 'query'
 tags:
+  - name: Addresses
   - name: Charities
   - name: Merchants
   - name: Members
@@ -27,6 +28,23 @@ schemes:
 produces:
   - application/json
 paths:
+  /addresses/lookup/{postcode}:
+    get:
+      tags:
+        - Addresses
+      summary: Gets List of addresses for a postcode
+      operationId: lookupPostcode
+      parameters:
+        - name: postcode
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: An array of addresses
+      x-google-backend:
+        address: https://api-addresses-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
   /charities:
     get:
       tags:
