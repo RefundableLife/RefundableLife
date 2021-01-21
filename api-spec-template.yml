@@ -15,6 +15,7 @@ securityDefinitions:
     in: 'query'
 tags:
   - name: Addresses
+  - name: Banking
   - name: Charities
   - name: Merchants
   - name: Members
@@ -28,6 +29,47 @@ schemes:
 produces:
   - application/json
 paths:
+  /banking/validate:
+    options:
+      tags:
+        - Banking
+      summary: Validates and gets the address from sortcode and account number
+      operationId: validateBankOptions
+      parameters:
+        - name: sortCode
+          in: query
+          required: true
+          type: string
+        - name: accountNumber
+          in: query
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Address
+      x-google-backend:
+        address: https://api-banking-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    post:
+      tags:
+        - Banking
+      summary: Validates and gets the address from sortcode and account number
+      operationId: validateBankPost
+      parameters:
+        - name: sortCode
+          in: query
+          required: true
+          type: string
+        - name: accountNumber
+          in: query
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Address
+      x-google-backend:
+        address: https://api-banking-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
   /addresses/lookup/{postcode}:
     get:
       tags:
