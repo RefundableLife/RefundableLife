@@ -29,6 +29,29 @@ schemes:
 produces:
   - application/json
 paths:
+  /payments/card:
+    options:
+      tags:
+        - Payments
+      summary: Takes a card payment
+      operationId: takeCardPaymentOptions
+      responses:
+        '200':
+          description: Success
+      x-google-backend:
+        address: https://api-payments-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    post:
+      tags:
+        - Payments
+      summary: Takes a card payment
+      operationId: takeCardPaymentPost
+      responses:
+        '200':
+          description: Success
+      x-google-backend:
+        address: https://api-payments-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
   /banking/validate:
     options:
       tags:
