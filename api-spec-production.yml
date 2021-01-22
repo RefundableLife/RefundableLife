@@ -2,7 +2,7 @@
 swagger: '2.0'
 info:
   description: Refundable External API
-  version: 1.4.2
+  version: 1.5.0
   title: Refundable External API
   contact:
     name: Simon Skinner
@@ -14,6 +14,8 @@ securityDefinitions:
     name: 'key'
     in: 'query'
 tags:
+  - name: Addresses
+  - name: Banking
   - name: Charities
   - name: Merchants
   - name: Members
@@ -27,6 +29,87 @@ schemes:
 produces:
   - application/json
 paths:
+  /payments/card:
+    options:
+      tags:
+        - Payments
+      summary: Takes a card payment
+      operationId: takeCardPaymentOptions
+      responses:
+        '200':
+          description: Success
+      x-google-backend:
+        address: https://api-payments-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    post:
+      tags:
+        - Payments
+      summary: Takes a card payment
+      operationId: takeCardPaymentPost
+      responses:
+        '200':
+          description: Success
+      x-google-backend:
+        address: https://api-payments-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+  /banking/validate:
+    options:
+      tags:
+        - Banking
+      summary: Validates and gets the address from sortcode and account number
+      operationId: validateBankOptions
+      parameters:
+        - name: sortCode
+          in: query
+          required: true
+          type: string
+        - name: accountNumber
+          in: query
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Address
+      x-google-backend:
+        address: https://api-banking-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    post:
+      tags:
+        - Banking
+      summary: Validates and gets the address from sortcode and account number
+      operationId: validateBankPost
+      parameters:
+        - name: sortCode
+          in: query
+          required: true
+          type: string
+        - name: accountNumber
+          in: query
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Address
+      x-google-backend:
+        address: https://api-banking-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+  /addresses/lookup/{postcode}:
+    get:
+      tags:
+        - Addresses
+      summary: Gets List of addresses for a postcode
+      operationId: lookupPostcode
+      parameters:
+        - name: postcode
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: An array of addresses
+      x-google-backend:
+        address: https://api-addresses-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
   /charities:
     get:
       tags:
@@ -146,6 +229,41 @@ paths:
       summary: Logs in a User
       operationId: loginUser
       parameters: []
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-members-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+  /members/{userId}:
+    options:
+      tags:
+        - Members
+      summary: Updates a user details
+      operationId: updateUserOptions
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-members-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    post:
+      tags:
+        - Members
+      summary: Updates a user details
+      operationId: updateUserPost
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: string
+      security:
+        - api_key: []
       responses:
         '200':
           description: all good
