@@ -316,8 +316,6 @@ paths:
       summary: Sends out an email to allow changing password
       operationId: forgotPasswordPost
       parameters: []
-      security:
-        - api_key: []
       responses:
         '200':
           description: all good
