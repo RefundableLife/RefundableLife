@@ -2,7 +2,7 @@
 swagger: '2.0'
 info:
   description: Refundable External API
-  version: 1.5.0
+  version: 1.6.0
   title: Refundable External API
   contact:
     name: Simon Skinner
@@ -291,6 +291,31 @@ paths:
       parameters: []
       security:
         - api_key: []
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-members-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+  /members/forgot-password:
+    options:
+      tags:
+        - Members
+      summary: Sends out an email to allow changing password
+      operationId: forgotPasswordOptions
+      parameters: []
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-members-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    post:
+      tags:
+        - Members
+      summary: Sends out an email to allow changing password
+      operationId: forgotPasswordPost
+      parameters: []
       responses:
         '200':
           description: all good
