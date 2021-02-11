@@ -297,6 +297,33 @@ paths:
       x-google-backend:
         address: https://api-members-TEMPLATEURL-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
+  /members/forgot-password:
+    options:
+      tags:
+        - Members
+      summary: Sends out an email to allow changing password
+      operationId: forgotPasswordOptions
+      parameters: []
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-members-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    post:
+      tags:
+        - Members
+      summary: Sends out an email to allow changing password
+      operationId: forgotPasswordPost
+      parameters: []
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-members-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
   /members/cards:
     options:
       tags:
