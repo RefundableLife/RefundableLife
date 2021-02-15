@@ -2,7 +2,7 @@
 swagger: '2.0'
 info:
   description: Refundable External API
-  version: 1.6.1
+  version: 1.6.2
   title: Refundable External API
   contact:
     name: Simon Skinner
@@ -340,6 +340,31 @@ paths:
         - Members
       summary: Validates a voucher code
       operationId: validateVoucherPost
+      parameters: []
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-members-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+  /members/validate-number:
+    options:
+      tags:
+        - Members
+      summary: Validates a number
+      operationId: validateNumberOptions
+      parameters: []
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-members-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    post:
+      tags:
+        - Members
+      summary: Validates a number
+      operationId: validateNumberPost
       parameters: []
       responses:
         '200':
