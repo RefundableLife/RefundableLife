@@ -1,6 +1,6 @@
 {
   "name": "refundable",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "description": "",
   "main": "generate-api-files.js",
   "scripts": {
