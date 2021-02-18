@@ -2,7 +2,7 @@
 swagger: '2.0'
 info:
   description: Refundable External API
-  version: 1.6.2
+  version: 1.6.3
   title: Refundable External API
   contact:
     name: Simon Skinner
@@ -660,6 +660,29 @@ paths:
           in: query
           required: true
           type: string
+      tags:
+        - Communications
+      responses:
+        '200':
+          description: A success result
+      x-google-backend:
+        address: https://api-communications-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+  /communications/email-template:
+    options:
+      summary: Sends an email template to a client
+      operationId: sendEmailTemplateOptions
+      tags:
+        - Communications
+      responses:
+        '200':
+          description: A success result
+      x-google-backend:
+        address: https://api-communications-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    post:
+      summary: Sends an email template to a client
+      operationId: sendEmailTemplatePost
       tags:
         - Communications
       responses:
