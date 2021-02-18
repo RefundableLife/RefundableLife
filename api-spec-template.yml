@@ -668,6 +668,29 @@ paths:
       x-google-backend:
         address: https://api-communications-TEMPLATEURL-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
+  /communications/email-template:
+    options:
+      summary: Sends an email template to a client
+      operationId: sendEmailTemplateOptions
+      tags:
+        - Communications
+      responses:
+        '200':
+          description: A success result
+      x-google-backend:
+        address: https://api-communications-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    post:
+      summary: Sends an email template to a client
+      operationId: sendEmailTemplatePost
+      tags:
+        - Communications
+      responses:
+        '200':
+          description: A success result
+      x-google-backend:
+        address: https://api-communications-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
 definitions:
   Communication:
     type: object
