@@ -2,7 +2,7 @@
 swagger: '2.0'
 info:
   description: Refundable External API
-  version: 1.6.4
+  version: 1.6.6
   title: Refundable External API
   contact:
     name: Simon Skinner
@@ -435,6 +435,18 @@ paths:
           description: all good
       x-google-backend:
         address: https://api-cards-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+  /members/is-registered:
+    get:
+      tags:
+        - Members
+      summary: Deletes a card options
+      operationId: memberIsRegisteredGet
+      responses:
+        '200':
+          description: all good
+      x-google-backend:
+        address: https://api-members-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /members/cards/{cardId}:
     options:
