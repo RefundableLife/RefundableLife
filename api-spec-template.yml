@@ -24,11 +24,24 @@ tags:
   - name: Payments
   - name: Documents
   - name: Communications
+  - name: Introducers
 schemes:
   - https
 produces:
   - application/json
 paths:
+  /introducers/apikey:
+    get:
+      tags:
+        - Introducers
+      summary: Gets the introducer ID for an api key
+      operationId: getIntroducerIdForApiKey
+      responses:
+        '200':
+          description: Success
+      x-google-backend:
+        address: https://api-payments-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
   /payments/card:
     options:
       tags:
