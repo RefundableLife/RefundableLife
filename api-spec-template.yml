@@ -40,7 +40,7 @@ paths:
         '200':
           description: Success
       x-google-backend:
-        address: https://api-payments-TEMPLATEURL-nw.a.run.app
+        address: https://api-introducers-TEMPLATEURL-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /payments/card:
     options:
