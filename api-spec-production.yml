@@ -2,7 +2,7 @@
 swagger: '2.0'
 info:
   description: Refundable External API
-  version: 1.6.7
+  version: 1.6.8
   title: Refundable External API
   contact:
     name: Simon Skinner
@@ -40,7 +40,7 @@ paths:
         '200':
           description: Success
       x-google-backend:
-        address: https://api-payments-k2mfaanpza-nw.a.run.app
+        address: https://api-introducers-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /payments/card:
     options:
