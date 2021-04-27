@@ -2,7 +2,7 @@
 swagger: '2.0'
 info:
   description: Refundable External API
-  version: 1.6.8
+  version: 1.6.9
   title: Refundable External API
   contact:
     name: Simon Skinner
@@ -550,6 +550,32 @@ paths:
         address: https://api-offers-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
   /transactions:
+    post:
+      summary: Gets a list of transactions ungrouped
+      operationId: addTransaction
+      tags:
+        - Transactions
+      responses:
+        '200':
+          description: An array of transactions
+          schema:
+            $ref: '#/definitions/ArrayOfTransactions'
+      x-google-backend:
+        address: https://api-transactions-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    options:
+      summary: Gets a list of transactions ungrouped
+      operationId: optionTransaction
+      tags:
+        - Transactions
+      responses:
+        '200':
+          description: An array of transactions
+          schema:
+            $ref: '#/definitions/ArrayOfTransactions'
+      x-google-backend:
+        address: https://api-transactions-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
     get:
       summary: Gets a list of transactions ungrouped
       operationId: listTransactions
