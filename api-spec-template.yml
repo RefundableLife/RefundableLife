@@ -549,6 +549,34 @@ paths:
       x-google-backend:
         address: https://api-offers-TEMPLATEURL-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
+  /users:
+    delete:
+      summary: Gets a list of transactions ungrouped
+      operationId: deleteUser
+      tags:
+        - Users
+      responses:
+        '200':
+          description: An array of transactions
+          schema:
+            $ref: '#/definitions/ArrayOfTransactions'
+      x-google-backend:
+        address: https://api-users-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    options:
+      summary: Gets a list of transactions ungrouped
+      operationId: userOption
+      tags:
+        - Users
+      responses:
+        '200':
+          description: An array of transactions
+          schema:
+            $ref: '#/definitions/ArrayOfTransactions'
+      x-google-backend:
+        address: https://api-users-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+
   /transactions:
     post:
       summary: Gets a list of transactions ungrouped
