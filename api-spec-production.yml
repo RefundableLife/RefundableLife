@@ -2,7 +2,7 @@
 swagger: '2.0'
 info:
   description: Refundable External API
-  version: 1.6.10
+  version: 1.6.11
   title: Refundable External API
   contact:
     name: Simon Skinner
@@ -549,10 +549,15 @@ paths:
       x-google-backend:
         address: https://api-offers-k2mfaanpza-nw.a.run.app
         path_translation: APPEND_PATH_TO_ADDRESS
-  /users:
+  /users/{userId}:
     delete:
       summary: Gets a list of transactions ungrouped
       operationId: deleteUser
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: string
       tags:
         - Users
       responses:
@@ -566,6 +571,11 @@ paths:
     options:
       summary: Gets a list of transactions ungrouped
       operationId: userOption
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: string
       tags:
         - Users
       responses:
