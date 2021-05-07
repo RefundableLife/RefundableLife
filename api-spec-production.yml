@@ -2,7 +2,7 @@
 swagger: '2.0'
 info:
   description: Refundable External API
-  version: 1.6.11
+  version: 1.9.0
   title: Refundable External API
   contact:
     name: Simon Skinner
@@ -25,11 +25,45 @@ tags:
   - name: Documents
   - name: Communications
   - name: Introducers
+  - name: CallRecordings
 schemes:
   - https
 produces:
   - application/json
 paths:
+  /call-recordings/{ref}:
+    options:
+      tags:
+        - CallRecordings
+      summary: Uploads a call recording
+      operationId: optionCallRecording
+      parameters:
+        - name: ref
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+      x-google-backend:
+        address: https://call-recordings-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    post:
+      tags:
+        - CallRecordings
+      summary: Uploads a call recording
+      operationId: postCallRecording
+      parameters:
+        - name: ref
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+      x-google-backend:
+        address: https://call-recordings-k2mfaanpza-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
   /introducers/apikey:
     get:
       tags:
