@@ -31,12 +31,17 @@ schemes:
 produces:
   - application/json
 paths:
-  /call-recordings/{reference}:
+  /call-recordings/{ref}:
     options:
       tags:
         - CallRecordings
       summary: Uploads a call recording
       operationId: optionCallRecording
+      parameters:
+        - name: ref
+          in: path
+          required: true
+          type: string
       responses:
         '200':
           description: Success
@@ -48,6 +53,11 @@ paths:
         - CallRecordings
       summary: Uploads a call recording
       operationId: postCallRecording
+      parameters:
+        - name: ref
+          in: path
+          required: true
+          type: string
       responses:
         '200':
           description: Success
