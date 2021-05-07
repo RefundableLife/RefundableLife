@@ -25,11 +25,36 @@ tags:
   - name: Documents
   - name: Communications
   - name: Introducers
+  - name: Call Recordings
 schemes:
   - https
 produces:
   - application/json
 paths:
+  /call-recordings/{reference}:
+    options:
+      tags:
+        - Call Recordings
+      summary: Uploads a call recording
+      operationId: optionCallRecording
+      responses:
+        '200':
+          description: Success
+      x-google-backend:
+        address: https://call-recordings-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    post:
+      tags:
+        - Call Recordings
+      summary: Uploads a call recording
+      operationId: postCallRecording
+      responses:
+        '200':
+          description: Success
+      x-google-backend:
+        address: https://call-recordings-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+
   /introducers/apikey:
     get:
       tags:
